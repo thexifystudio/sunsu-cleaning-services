@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# Sunsu Cleaning Service
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Sitio web de [sunsucleaningservices.com](https://sunsucleaningservices.com) — servicios de limpieza profesional en Quito y sus valles.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro (salida estática) + Tailwind CSS v4. Una sola página con secciones ancladas.
 
-## 🚀 Project Structure
+## Comandos
 
-Inside of your Astro project, you'll see the following folders and files:
+| Comando           | Acción                                        |
+| :---------------- | :-------------------------------------------- |
+| `npm install`     | Instala dependencias                          |
+| `npm run dev`     | Servidor local en `localhost:4321`            |
+| `npm run build`   | Compila el sitio en `./dist/`                 |
+| `npm run preview` | Previsualiza el build antes de desplegar      |
+
+Node 22 (ver `.nvmrc`).
+
+## Estructura
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+public/            # Assets servidos tal cual + _headers y robots.txt
+src/
+  components/      # Secciones de la página (Hero, Services, Gallery…)
+  data/            # Contenido editable: servicios, FAQ, testimonios, site.ts
+  layouts/         # Layout.astro — <head>, SEO y JSON-LD
+  pages/index.astro
+  styles/global.css
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Para cambiar textos, teléfono de WhatsApp o servicios, edita los archivos de `src/data/` — no hace falta tocar los componentes.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Despliegue
 
-Any static assets, like images, can be placed in the `public/` directory.
+Cloudflare Pages, proyecto `sunsu-cleaning-services`, conectado a este repo.
 
-## 🧞 Commands
+- Rama de producción: `main` (cada push despliega automáticamente)
+- Comando de build: `npm run build`
+- Directorio de salida: `dist`
+- Dominios: `sunsucleaningservices.com` (principal) y `www.` (redirige al apex con una Redirect Rule de la zona)
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Las cabeceras de seguridad y de caché se definen en `public/_headers`.

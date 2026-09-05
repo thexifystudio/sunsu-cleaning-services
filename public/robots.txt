@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sunsu.ec/sitemap-index.xml
+Sitemap: https://sunsucleaningservices.com/sitemap-index.xml
