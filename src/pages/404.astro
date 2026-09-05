@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, whatsappLink } from '../data/site';
+---
+
+<Layout
+  title={`Página no encontrada | ${site.legalName}`}
+  description="La página que buscas no existe o cambió de dirección."
+>
+  <main class="flex min-h-screen flex-col items-center justify-center px-page text-center">
+    <a href="/" class="mb-10 flex items-center gap-3">
+      <img
+        src="/logo-sunsu.webp"
+        alt={site.legalName}
+        width="144"
+        height="144"
+        class="h-12 w-12"
+      />
+      <span class="font-display text-2xl font-bold tracking-tighter text-navy">SUNSU</span>
+    </a>
+
+    <p class="font-display text-7xl font-bold tracking-tighter text-turquoise sm:text-8xl">404</p>
+
+    <h1 class="mt-6 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      Esta página no existe
+    </h1>
+
+    <p class="mt-4 max-w-md text-base text-on-surface-variant">
+      Puede que el enlace esté roto o que la página haya cambiado de dirección. Volvamos a lo
+      importante: dejar tu espacio impecable.
+    </p>
+
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/"
+        class="rounded-full bg-navy px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-deep"
+      >
+        Volver al inicio
+      </a>
+      <a
+        href={whatsappLink('Hola, quisiera información sobre sus servicios de limpieza.')}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full border border-navy/15 px-7 py-3 text-sm font-semibold text-navy transition-colors hover:bg-navy/5"
+      >
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </main>
+</Layout>
